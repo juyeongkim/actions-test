@@ -1,0 +1,34 @@
+name: services-test
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  services-test:
+    runs-on: ubuntu-latest
+    
+    name: ${{ matrix.browser }}
+
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
+
+    services:
+      selenium:
+        image: selenium/standalone-${{ matrix.browser }}:latest
+        ports:
+          - 4444:4444
+        volumes:
+          - /dev/shm:/dev/shm
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check
+        run: |
+          docker network ls
+          docker image ls
+          docker ps
+          ip address
