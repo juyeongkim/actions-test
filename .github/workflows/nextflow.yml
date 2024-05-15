@@ -6,4 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: nf-core/setup-nextflow@v1
-      - run: docker pull bosingerlab/baldr
+      - run: cd .github
+      - run: pwd
