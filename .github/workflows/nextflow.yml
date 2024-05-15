@@ -5,6 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: nf-core/setup-nextflow@v1
-      - run: cd .github
-      - run: pwd
+      - run: |
+          cd .github
+          mkdir index
+          wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR647/006/SRR6471006/SRR6471006_1.fastq.gz
+          wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR647/006/SRR6471006/SRR6471006_2.fastq.gz
+      - run: |
+          pwd
+          ls -la
+          ls -la .github
