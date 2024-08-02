@@ -16,4 +16,4 @@ jobs:
           ls -la .github
       - name: test.R
         run: |
-          docker run -v tests:/tests ghcr.io/juyeongkim/data.table:1.14.2 /tests/test.R hello
+          docker run -v ./tests:/tests ghcr.io/juyeongkim/data.table:1.14.2 Rscript /tests/test.R hello
