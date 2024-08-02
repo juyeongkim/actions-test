@@ -14,3 +14,6 @@ jobs:
           pwd
           ls -la
           ls -la .github
+      - name: test.R
+        run: |
+          docker run -v tests:/tests ghcr.io/juyeongkim/data.table:1.14.2 /tests/test.R hello
